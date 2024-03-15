@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>3p Delay</title>
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        const autoLoadDuration = 5; //In Seconds
+        const eventList = ["keydown", "mousemove", "wheel", "touchmove", "touchstart", "touchend"];
+        const autoLoadTimeout = setTimeout(runScripts, autoLoadDuration * 1000);
+
+        eventList.forEach(function(event) {
+            window.addEventListener(event, triggerScripts, { passive: true })
+        });
+
+        function triggerScripts() {
+            runScripts();
+            clearTimeout(autoLoadTimeout);
+            eventList.forEach(function(event) {
+                window.removeEventListener(event, triggerScripts, { passive: true });
+            });
+        }
+
+        function runScripts() {
+            document.querySelectorAll("script[delay]").forEach(function(scriptTag) {
+                scriptTag.setAttribute("src", scriptTag.getAttribute("delay"));
+            });
+        }
+    </script>
+    <script delay="../blockDom.js"></script>
+    <script src="../showImage.js"></script>
+    <script delay="../script.js"></script>
+</head>
+<body>
+    <div class="aboveFold">
+        <h1>3p Delay</h1>
+        <div class="images" id="images">
+            <img src="../images/1.jpg" width="400" height="500">
+            <img src="../images/2.jpg" width="400" height="500">
+            <img src="../images/3.jpg" width="400" height="500">
+            <img src="../images/4.jpg" width="400" height="500">
+        </div>
+    </div>
+</body>
+</html>

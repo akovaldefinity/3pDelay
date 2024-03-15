@@ -1,0 +1,11 @@
+.aboveFold {
+    min-height: 100vh;
+}
+
+.images {
+    display: none;
+}
+
+.images img {
+    width: calc(25% - 25px);
+}
