@@ -30,6 +30,10 @@
             window.dispatchEvent(event);
             console.log('event dispatched');
         }
+        window.addEventListener('customEventFbPixel', function() {
+            console.log('customEventFbPixel received');
+        });
+
     </script>
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
