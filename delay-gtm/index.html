@@ -26,8 +26,8 @@
             document.querySelectorAll("script[delay]").forEach(function(scriptTag) {
                 scriptTag.setAttribute("src", scriptTag.getAttribute("delay"));
             });
-            var event = new CustomEvent('customEventFbPixel');
-            window.dispatchEvent(event);
+            window.dataLayer = window.dataLayer || [];
+            dataLayer.push({'event': 'customEventFbPixel'});
             console.log('event dispatched');
         }
         window.addEventListener('customEventFbPixel', function() {
