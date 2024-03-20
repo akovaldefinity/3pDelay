@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>3p Delay</title>
+	<title>3p Delay GTM</title>
     <link rel="icon" type="image/x-icon" href="../favicon.ico">
     <link rel="stylesheet" href="../style.css">
+    <!-- Script delaying -->
     <script>
         const autoLoadDuration = 10; //In Seconds
         const eventList = ["keydown", "mousemove", "wheel", "touchmove", "touchstart", "touchend"];
@@ -25,15 +26,28 @@
             document.querySelectorAll("script[delay]").forEach(function(scriptTag) {
                 scriptTag.setAttribute("src", scriptTag.getAttribute("delay"));
             });
+            var event = new CustomEvent('customEventFbPixel');
+            window.dispatchEvent(event);
+            console.log('event dispatched');
         }
     </script>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-WZF9QPBV');</script>
+
     <script delay="../blockDom.js"></script>
     <script src="../showImage.js"></script>
     <script delay="../script.js"></script>
 </head>
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WZF9QPBV" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <div class="aboveFold">
-        <h1>3p Delay</h1>
+        <h1>3p Delay GTM</h1>
         <div class="images" id="images">
             <img src="../images/1.jpg" width="400" height="500">
             <img src="../images/2.jpg" width="400" height="500">
